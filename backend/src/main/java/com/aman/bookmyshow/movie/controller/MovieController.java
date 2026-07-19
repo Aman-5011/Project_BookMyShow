@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @CrossOrigin
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/movies")
 @RestController
 public class MovieController {
     @Autowired
     public MovieService movieService;
 
-    @GetMapping("/movies")
+    @GetMapping
     public ResponseEntity<ApiResponse<List<MovieCardResponse>>> getAllMovies(){
 
         return ResponseEntity.ok(
@@ -28,7 +28,7 @@ public class MovieController {
         );
     }
 
-    @GetMapping("/movie/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<MovieDetailsResponse>> getMovieById(@PathVariable Long id){
         return ResponseEntity.ok(
                 new ApiResponse<>(

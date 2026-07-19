@@ -30,7 +30,7 @@ public class TheaterController {
     }
 
     @GetMapping("/theater/{id}")
-    public ResponseEntity<ApiResponse<TheaterResponse>> getMovieById(@PathVariable Long id){
+    public ResponseEntity<ApiResponse<TheaterResponse>> getTheaterById(@PathVariable Long id){
         return ResponseEntity.ok(
                 new ApiResponse<>(
                         true,

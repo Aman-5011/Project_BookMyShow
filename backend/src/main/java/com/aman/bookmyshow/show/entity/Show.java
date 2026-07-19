@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,10 +25,12 @@ public class Show {
     private Movie movie;
     @ManyToOne
     private Theater theater;
-    private String location;
+    private String state;
     private String format;
     private String audioType;
-    private LocalTime startTime;
-    private LocalDate date;
+    private String startTime;
+    private LocalDate showDate;
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(columnDefinition = "jsonb")
     private List<SeatRow> seatLayout;
 }
