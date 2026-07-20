@@ -9,5 +9,5 @@ public record MovieCardResponse(
     Double rating,
     Integer votes,
     String certification,
-    List<String> language
+    List<String> languages
 ) { }
