@@ -12,7 +12,7 @@ const Movies = () => {
       return await getAllMovies();
     },
     placeholderData: keepPreviousData,
-    select: (res) => res.data.movies 
+    select: (res) => res.data.data 
   });
 
   console.log(allMovies)

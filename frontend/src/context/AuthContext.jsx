@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
 
     const activateUserRequest = async (data) => {
         const { name, phone } = data;
-        const id = user?._id;
+        const id = user?.id;
         const reqData = { id, name, phone };
 
         activateUserMutation.mutate(reqData, {

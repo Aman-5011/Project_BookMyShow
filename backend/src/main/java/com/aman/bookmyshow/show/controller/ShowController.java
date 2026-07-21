@@ -28,7 +28,7 @@ public class ShowController {
     public ResponseEntity<ApiResponse<List<GroupedShowResponse>>> getAllShows(
             @RequestParam Long movieId,
             @RequestParam String state,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+            @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy")
             LocalDate date
     )
     {

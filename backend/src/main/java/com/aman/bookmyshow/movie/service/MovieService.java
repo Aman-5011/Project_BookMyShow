@@ -48,4 +48,20 @@ public class MovieService {
                 movie.getCertification()
         );
     }
+
+    public List<MovieCardResponse> getRecommendedMovies() {
+        return movieRepo.findTop8ByOrderByRatingDesc()
+                .stream()
+                .map(movie-> new
+                        MovieCardResponse(
+                            movie.getId(),
+                            movie.getTitle(),
+                            movie.getPosterUrl(),
+                            movie.getRating(),
+                            movie.getVotes(),
+                            movie.getCertification(),
+                            movie.getLanguages()
+                        )
+                ).toList();
+    }
 }

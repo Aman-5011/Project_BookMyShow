@@ -40,8 +40,8 @@ const Checkout = () => {
             clearInterval(interval);
 
             socket.emit("unlock-seats", {
-              showId: showData._id,
-              userId: user._id
+              showId: showData.id,
+              userId: user.id
             })
 
             toast.error("Time expired!")
@@ -87,16 +87,16 @@ const Checkout = () => {
         currency: orderData?.currency,
         name: "BookMyScreen",
         description: "Secure Payment for Your Booking",
-        order_id: orderData?.id,
+        orderid: orderData?.id,
         handler: async function (response) {
           console.log(response);
           verifyPaymentMutation.mutate(response);
 
 
           const reqData = {
-            showId: showData._id,
+            showId: showData.id,
             seats: selectedSeats,
-            paymentId: response.razorpay_payment_id,
+            paymentId: response.razorpayPaymentId,
             bookingFee: {
               ticketPrice: base,
               total : total,
@@ -140,11 +140,11 @@ const Checkout = () => {
       console.log(data);
       toast.success(data?.data?.message);
       socket.emit("unlock-seats", {
-        showId: showData._id,
-        userId: user._id,
+        showId: showData.id,
+        userId: user.id,
         seatIds: selectedSeats
       })
-      navigate(`/profile/${user._id}/booking`);
+      navigate(`/profile/${user.id}/booking`);
     },
     onError: (err) => {
       console.log(err);

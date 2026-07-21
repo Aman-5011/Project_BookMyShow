@@ -14,7 +14,7 @@ const Recommended = () => {
     const originalTitle = movie.title;
     const cleanedTitle = originalTitle.includes(":") ? originalTitle.replace(/:/g, "") : originalTitle;
     const formattedTitle = cleanedTitle.replace(/\s+/g, "-").toLowerCase();
-    navigate(`/movies/${location}/${formattedTitle}/${movie._id}/ticket`)
+    navigate(`/movies/${location}/${formattedTitle}/${movie.id}/ticket`)
   }
 
   // API CALL
@@ -48,7 +48,7 @@ const Recommended = () => {
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4
              xl:grid-cols-5 gap-4"
         >
-          {recMovies?.data.topMovies.map((movie, i) => (
+          {recMovies?.data.data.map((movie, i) => (
             <div key={i} onClick={() => handleNavigate(movie)} className="rounded overflow-hidden cursor-pointer">
               <div className="relative">
                 <img
@@ -67,7 +67,7 @@ const Recommended = () => {
               <div className="px-2 py-1">
                 <h3 className="font-semibold text-lg">{movie.title}</h3>
                 <p className="text-md text-gray-500">
-                  {movie.genre.join(" | ")}
+                  {movie.languages.join(" | ")}
                 </p>
               </div>
             </div>

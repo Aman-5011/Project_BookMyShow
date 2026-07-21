@@ -11,7 +11,7 @@ const MovieCard = ({movie}) => {
       const originalTitle = movie.title;
       const cleanedTitle = originalTitle.includes(":") ? originalTitle.replace(/:/g, "") : originalTitle;
       const formattedTitle = cleanedTitle.replace(/\s+/g, "-").toLowerCase();
-      navigate(`/movies/${location}/${formattedTitle}/${movie._id}/ticket`)
+      navigate(`/movies/${location}/${formattedTitle}/${movie.id}/ticket`)
   }
 
   return (

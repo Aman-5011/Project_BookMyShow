@@ -38,7 +38,7 @@ const MovieDetails = () => {
       <div
         className="relative text-white font-sans px-4 py-10"
         style={{
-          backgroundImage: `url(${movie?.data.movie.posterUrl})`,
+          backgroundImage: `url(${movie?.data.data.posterUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -51,21 +51,21 @@ const MovieDetails = () => {
           {/* Poster */}
           <div>
             <img
-              src={movie?.data.movie.posterUrl}
-              alt={movie?.data.movie.title}
+              src={movie?.data.data.posterUrl}
+              alt={movie?.data.data.title}
               className="rounded-xl w-52 shadow-xl"
             />
           </div>
           {/* Details */}
           <div className="flex flex-col justify-start flex-1">
-            <h1 className="text-4xl font-bold mb-4">{movie?.data.movie.title}</h1>
+            <h1 className="text-4xl font-bold mb-4">{movie?.data.data.title}</h1>
 
             <div className="flex items-center gap-4 mb-3">
               <div className="bg-[#3a3a3a] px-4 py-2 rounded-md flex items-center gap-2 text-sm">
                 <span className="text-pink-500 font-bold">
-                  ★ {movie?.data.movie.rating}
+                  ★ {movie?.data.data.rating}
                 </span>
-                <span className="text-gray-300">{movie?.data.movie.votes} Votes</span>
+                <span className="text-gray-300">{movie?.data.data.votes} Votes</span>
                 <button className="cursor-pointer bg-[#2f2f2f] ml-6 px-4 py-2 rounded-md  hove:bg-[#4a4a4a]">
                   Rate now
                 </button>
@@ -74,22 +74,22 @@ const MovieDetails = () => {
 
             <div className="flex items-center gap-3 text-sm mb-4">
               <span className="bg-[#3a3a3a] px-3 py-1 rounded">
-                {movie?.data.movie.format.join(", ")}
+                {movie?.data.data.format.join(", ")}
               </span>
               <span className="bg-[#3a3a3a] px-3 py-1 rounded">
-                {movie?.data.movie.languages.join(", ")}
+                {movie?.data.data.languages.join(", ")}
               </span>
             </div>
 
             <p className="text-sm text-gray-300 mb-4">
-              {movie?.data.movie.duration} • {movie?.data.movie.genre.join(", ")} •{" "}
-              {movie?.data.movie.certification} • {movie?.data.movie.releaseDate}
+              {movie?.data.data.duration} • {movie?.data.data.genre.join(", ")} •{" "}
+              {movie?.data.data.certification} • {movie?.data.data.releaseDate}
             </p>
 
             <div>
               <h2 className="text-xl font-bold mb-2">About the movie</h2>
               <p className="text-sm text-gray-50 leading-relaxed mb-4">
-                {movie?.data.movie.description}
+                {movie?.data.data.description}
               </p>
             </div>
           </div>

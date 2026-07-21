@@ -39,4 +39,15 @@ public class MovieController {
         );
     }
 
+    @GetMapping("/recommended")
+    public ResponseEntity<ApiResponse<List<MovieCardResponse>>> getRecommendedMovies(){
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "Recommended movies fetched successfully",
+                        movieService.getRecommendedMovies()
+                )
+        );
+    }
+
 }

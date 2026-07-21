@@ -34,7 +34,7 @@ const BookingHistory = () => {
         {data?.data?.bookings?.map((booking) => (
           <>
             <div
-              key={booking._id}
+              key={booking.id}
               className="bg-white p-5 rounded-md mb-2 overflow-hidden"
             >
               <div className="flex items-start gap-10">

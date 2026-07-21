@@ -13,12 +13,12 @@ const Footer = ({ isSelected, selectedSeats, showData, state }) => {
 
     // send lock request to socket.io server
     socket.emit("lock-seats", {
-      showId: showData._id,
+      showId: showData.id,
       seatIds: selectedSeats,
-      userId: user._id
+      userId: user.id
     })
 
-    navigate(`/shows/${showData._id}/${state}/checkout`);
+    navigate(`/shows/${showData.id}/${state}/checkout`);
     setShows(showData);
   }
 
