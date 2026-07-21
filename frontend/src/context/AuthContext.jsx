@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
         sendOtpRequestMutation.mutate(email, {
             onSuccess : (res) => {
                 console.log(res.data);
-                setAuthData(res.data);
+                setAuthData(res.data.data);
                 toast.success("OTP sent to your email");
                 onNext();
             },
